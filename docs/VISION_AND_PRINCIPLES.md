@@ -10,7 +10,7 @@ Two people may plant the same seed and receive two different histories.
 
 ## Vision Statement
 
-WORLD_SEED will let ordinary creators build persistent, inspectable, locally controlled fictional worlds where AI residents can act, collaborate, explore, create, disagree, and develop relationships inside authored boundaries.
+WORLD_SEED will let ordinary creators build persistent, inspectable, locally controlled fictional worlds where AI residents and a human-controlled avatar can act, collaborate, explore, create, disagree, and develop relationships inside authored boundaries.
 
 ## Design Principles
 
@@ -33,6 +33,18 @@ Residents can interpret the same event differently. The engine records what obje
 ### Give creators control of their own worlds
 
 Creators choose their models, storage, world visibility, rules, assets, and adapters. A local installation must not require remote telemetry, mandatory accounts, or hidden data collection to preserve basic functionality.
+
+### Separate the Creator from the Avatar
+
+The Creator maintains and protects the installation from outside the fiction. The Avatar participates inside it through validated actions. Administrative intervention must not be disguised as something the Avatar did, and in-world invitations must not grant administrative authority.
+
+### Let residents pursue a future
+
+Residents may develop goals, choose or leave roles, establish routines, and propose places or institutions that current world rules can support. Roles should acquire history through decisions and events rather than becoming permanent identity labels assigned by one prompt.
+
+### Grow through finite projects
+
+Resident-led world growth moves through proposals, requirements, collaboration, staging, validation, approval, import, and recorded use. A compelling description does not create a traversable location, and a generated image does not become a canonical object by itself.
 
 ### Earn autonomy through evidence
 
@@ -57,6 +69,9 @@ A mature WORLD_SEED installation may let a creator:
 - speak with residents and observe their world;
 - leave while the simulation advances under configured scheduling rules;
 - watch residents choose activities and cooperate on projects;
+- enter through a human-controlled Avatar and respond to resident invitations;
+- help residents establish roles, services, locations, and institutions;
+- collaborate on world additions that residents can later use and remember building;
 - explore towns, wilderness, and authored encounters;
 - introduce creatures, resources, crafting, hunting, or combat;
 - connect a 2D, 3D, terminal, web, or accessibility-focused interface;

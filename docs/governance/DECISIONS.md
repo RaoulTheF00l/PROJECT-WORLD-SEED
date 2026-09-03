@@ -71,3 +71,24 @@ Persistence, actions, validation, events, and replay must work with deterministi
 **Date:** 2026-09-02
 
 Creatures, combat, hunting, quests, crafting, specialist models, and resident-created artifacts use optional extension contracts rather than becoming mandatory assumptions.
+
+## D-011 — The User Has Separate Creator and Avatar Roles
+
+**Status:** Accepted direction  
+**Date:** 2026-09-03
+
+The Creator manages approvals, configuration, privacy, recovery, and administration outside the fiction. The human-controlled Avatar participates inside the world through the same validated action boundary used by other actors. Neither control path silently inherits the authority of the other.
+
+## D-012 — Residents May Initiate World-Growth Projects
+
+**Status:** Accepted direction  
+**Date:** 2026-09-03
+
+Residents may develop goals, propose additions, collaborate with other residents and the user, and ask for missing help. Proposals and generated artifacts remain staged until trusted validation and any required Creator approval allow canonical import.
+
+## D-013 — Roles and Institutions Are Canonical, Voluntary Structures
+
+**Status:** Accepted direction  
+**Date:** 2026-09-03
+
+Roles such as innkeeper or guild master are not permanent prompt labels or self-declared authority. They are inspectable world records with requirements, scoped permissions, status, acceptance, and event history. Residents may change or leave roles without erasing identity.

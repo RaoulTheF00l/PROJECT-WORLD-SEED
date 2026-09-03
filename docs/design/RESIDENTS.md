@@ -17,6 +17,7 @@ A model is one component used by a resident. It is not the resident's entire ide
 | Policy adapter | Produces proposed intentions | Deterministic policy or local LLM |
 | Personal memory | Resident-specific retained experience | Preference learned from events |
 | Relationship beliefs | Perspective on other residents | Trust supported by shared history |
+| Goals and roles | Desired outcomes and accepted world functions | Propose an inn or serve as its keeper |
 | Presentation state | Voice/avatar/UI references | Current expression or animation cue |
 
 ## Draft Resident Definition
@@ -85,6 +86,14 @@ Identity may grow through:
 
 Identity must not be rewritten automatically from one generated message, temporary mood, malicious world text, or model checkpoint change.
 
+## Goals and Roles
+
+Residents may form bounded goals from their preferences, memories, current needs, available opportunities, and creator-authored rules. A goal may lead to an ordinary action, a recurring activity, a proposed role, or a larger project.
+
+A resident does not gain a role by declaring it in narration. Roles such as innkeeper, guild master, caretaker, teacher, or craftsperson are canonical records with requirements, permissions, status, and event history. Residents may accept, decline, share, pause, transfer, or leave roles without having their entire identity rewritten.
+
+See [Resident Roles and Institutions](RESIDENT_ROLES_AND_INSTITUTIONS.md).
+
 ## Multiple Residents
 
 Every resident has separate identifiers, memory namespaces, policy configuration, and observation scopes. Shared events may be referenced by multiple residents, but derived memories remain perspective-specific.
@@ -94,3 +103,11 @@ Scheduling should prevent one slow model from permanently blocking the whole wor
 ## Resident-Created Work
 
 Residents may eventually propose stories, images, code, buildings, items, quests, or rule changes. Proposed work enters a staging area with provenance. Trusted workflows validate and import approved artifacts. Creation ability never implies direct filesystem, shell, Git, publishing, or permission authority.
+
+A resident project may also coordinate several contributors and request missing help from the user. The engine must distinguish simulated construction from real content or engine development and must never pretend that requested work has been completed. See [Resident Projects and World Growth](RESIDENT_PROJECTS_AND_WORLD_GROWTH.md).
+
+## Residents and the User's Avatar
+
+The Avatar is a human-controlled in-world actor, not an autonomous resident policy and not the Creator's administrative identity. Residents may observe the Avatar's presence, interact with it, and invite the user to participate. They cannot impersonate the Avatar, force the user to accept an invitation, or gain Creator authority through the relationship.
+
+See [Creator and Avatar](CREATOR_AND_AVATAR.md).

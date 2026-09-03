@@ -19,6 +19,9 @@
 - [World Seed Format](design/SEED_FORMAT.md)
 - [World Packs](design/WORLD_PACKS.md)
 - [Residents](design/RESIDENTS.md)
+- [Creator and Avatar](design/CREATOR_AND_AVATAR.md)
+- [Resident Roles and Institutions](design/RESIDENT_ROLES_AND_INSTITUTIONS.md)
+- [Resident Projects and World Growth](design/RESIDENT_PROJECTS_AND_WORLD_GROWTH.md)
 - [RPG Systems and Creatures](design/RPG_AND_CREATURES.md)
 
 ## Development

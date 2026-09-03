@@ -4,6 +4,28 @@ All notable public specification changes will be recorded here.
 
 This project uses design-stage version numbers until a functional engine is publicly released.
 
+## 0.1.2-draft — 2026-09-03
+
+### Added
+
+- a formal separation between the user's out-of-world Creator controls and human-controlled in-world Avatar;
+- design contracts for resident-chosen roles and small institutions;
+- an inspectable lifecycle for resident-led projects and collaborative world growth;
+- glossary and architecture terms for human input, projects, roles, and institutions.
+
+### Changed
+
+- expanded the long-term experience from observing residents to sharing the world through an Avatar;
+- expanded Milestone 5 with a terminal Avatar proof and explicit Creator/Avatar authority separation;
+- reframed Milestone 8 around resident projects, roles, collaboration, validated imports, and visiting completed work;
+- clarified that residents may invite or request help from the user without fabricating participation or gaining administrative authority.
+
+### Not Included
+
+- an implemented Avatar controller or user-input adapter;
+- resident goal selection, roles, institutions, or project runtime state;
+- automatic world generation or unrestricted model-driven modification.
+
 ## 0.1.1-draft — 2026-09-03
 
 ### Added

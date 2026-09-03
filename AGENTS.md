@@ -33,6 +33,8 @@ Use clearly synthetic examples such as the included Tiny Garden template.
 6. RPG outcomes come from authored rules and recorded randomness, not narrative declarations.
 7. Consequential operations are inspectable, permissioned, and reversible where practical.
 8. A world pack contains starting definitions; mutable runtime history lives outside the pack.
+9. Creator administration and human-controlled Avatar actions use separate authority paths.
+10. Resident goals, roles, projects, and generated artifacts do not become canonical through narration alone.
 
 ## Working Rules
 
@@ -44,6 +46,7 @@ Use clearly synthetic examples such as the included Tiny Garden template.
 6. Keep examples deterministic and free of personal information.
 7. Update schemas and prose together when an interface changes.
 8. Do not silently settle unresolved legal, pricing, identity, or safety decisions.
+9. Describe Creator/Avatar interaction, roles, institutions, and resident-led growth as planned until verified runtime evidence exists.
 
 ## Milestone 1 Scope Guard
 

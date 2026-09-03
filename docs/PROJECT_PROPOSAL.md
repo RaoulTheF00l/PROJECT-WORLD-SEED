@@ -2,7 +2,7 @@
 
 ## Proposal Summary
 
-WORLD_SEED will be a local-first simulation engine that lets creators define and run persistent fictional worlds inhabited by AI residents. Instead of shipping a fixed cast or setting, WORLD_SEED supplies the deterministic machinery needed to **plant a world seed** and allow that installation to develop its own history.
+WORLD_SEED will be a local-first simulation engine that lets creators define and run persistent fictional worlds shared by AI residents and a human-controlled avatar. Instead of shipping a fixed cast or setting, WORLD_SEED supplies the deterministic machinery needed to **plant a world seed** and allow that installation to develop its own history.
 
 The project will publish its vision, interoperability specification, schemas, templates, safety model, and development record in a public repository. The official engine implementation is proposed as a source-available product offered for a one-time **$5 USD lifetime purchase** when it reaches a usable release.
 
@@ -20,6 +20,7 @@ A creator should be able to define:
 
 - a small apartment, village, ship, school, wilderness, or original setting;
 - one or more distinct residents;
+- a human-controlled Avatar through which the user can participate inside the world;
 - daily activities and social opportunities;
 - creatures, items, resources, abilities, and optional RPG mechanics;
 - model providers and specialist capabilities;
@@ -27,6 +28,19 @@ A creator should be able to define:
 - strict privacy, memory, and permission boundaries.
 
 After initialization, the engine should maintain objective state and history. Residents receive bounded observations, propose structured intentions, and receive the results of validated actions. Their routines, preferences, projects, conflicts, relationships, and interpretations can then develop from actual recorded experience.
+
+## The Core Experience
+
+WORLD_SEED is intended to support a world that can be expanded from within rather than only edited from an external authoring screen.
+
+A resident may develop an interest in operating an inn, forming an adventurers' guild, maintaining a workshop, building a home, documenting creatures, or creating another world-supported project. Residents may plan together, contribute through bounded specialist capabilities, identify missing requirements, and ask the user for help. Their work enters canonical state only through structured projects, validation, provenance, and Creator approval where required.
+
+The human participant has two distinct modes:
+
+1. **Creator mode** manages the installation, approvals, configuration, recovery, and development inputs.
+2. **Avatar mode** allows the user to enter the world, interact with residents, explore, and participate through validated in-world actions.
+
+This separation lets a resident truthfully say, “We opened the inn—make an Avatar and visit us,” without confusing an invitation with administrator authority or pretending the user already participated.
 
 ## Product Definition
 
@@ -59,7 +73,9 @@ The engine should be:
 - **portable:** world packs use versioned documented formats;
 - **privacy-preserving:** private runtime history is separated from shareable definitions;
 - **extensible:** RPG rules, renderers, model hosts, and creator tools use explicit adapters;
-- **resource-conscious:** the first usable world should not require a server cluster or high-end GPU.
+- **resource-conscious:** the first usable world should not require a server cluster or high-end GPU;
+- **participatory:** the user can enter through an Avatar without surrendering separate Creator controls;
+- **co-creative:** resident-led growth uses finite projects, staged work, validation, approval, and recorded provenance.
 
 ## Non-Goals
 
@@ -97,6 +113,7 @@ WORLD_SEED is not intended to:
 - local-model adapters;
 - bounded memory and relationship interpretation;
 - activities, projects, creatures, resources, combat, hunting, and RPG hooks;
+- user-Avatar interaction, resident-chosen roles, institutions, and resident-led world growth;
 - renderer bridge, with Godot as an early target;
 - approved resident creation workflows and specialist adapters.
 
@@ -136,7 +153,9 @@ WORLD_SEED succeeds when a new creator can:
 5. inspect why an action succeeded or failed;
 6. replace a model or renderer adapter without destroying identity or history;
 7. keep private runtime data out of public source control;
-8. build and distribute original world content under clear terms.
+8. control an Avatar that participates through the world's ordinary action rules;
+9. let residents propose one small world addition and collaborate with the user through an inspectable approval process; and
+10. build and distribute original world content under clear terms.
 
 ## Immediate Decision
 

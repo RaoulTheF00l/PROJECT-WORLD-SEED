@@ -1,7 +1,7 @@
 # Project Status
 
 **Status date:** 2026-09-03  
-**Specification version:** `0.1.0-draft`  
+**Specification version:** `0.1.2-draft`  
 **Active milestone:** Milestone 1 — One Persistent Model-Free World Tick
 
 ## Verified
@@ -14,6 +14,7 @@
 - Two deterministic placeholder residents can act in one room, producing ordered `wait` events while the world advances from tick `0` through tick `2`.
 - Invalid world references and invalid actions fail before event-history mutation.
 - The public repository contains no engine runtime or private world material.
+- The accepted long-term design now separates Creator administration from human-controlled Avatar actions and defines resident-led roles, institutions, and world-growth projects.
 
 See [Core Loop Proof](development/CORE_LOOP_PROOF.md) for the test manifest, supported claim, and evidence limitations.
 
@@ -35,7 +36,8 @@ Complete Milestone 1 by adding versioned JSON persistence, save/load round-trip 
 
 - AI resident inference;
 - personal memory or relationship development;
-- voice, avatars, or renderer integration;
+- voice or renderer integration;
+- human Avatar input, resident goal selection, roles, institutions, or resident-led project state;
 - creatures, combat, hunting, quests, or construction;
 - external tools or resident-created code;
 - payment, account, licensing, or distribution infrastructure;

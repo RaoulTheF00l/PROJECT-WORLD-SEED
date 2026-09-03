@@ -135,7 +135,7 @@ Exit criteria:
 
 ## Milestone 5 — Apartment-Scale Life
 
-**Goal:** Support a small persistent home with meaningful routines and shared activities.
+**Goal:** Support a small persistent home where residents and a human-controlled Avatar can share meaningful routines and activities.
 
 Scope:
 
@@ -144,11 +144,15 @@ Scope:
 - bounded activities such as reading, cooking, gardening, games, and conversation;
 - resident initiative and idle policies;
 - shared-project and relationship event history;
+- terminal-based Avatar presence and one small set of validated user-controlled actions;
+- a clear boundary between Avatar actions and Creator administration;
 - creator pause, inspect, resume, and rollback tools.
 
 Exit criteria:
 
 - residents can independently begin and complete activities;
+- the user can enter through an Avatar and interact without bypassing action rules;
+- resident invitations never impersonate the user or grant Creator authority;
 - conflicts over objects or time resolve deterministically;
 - scheduled and interrupted activities resume or fail coherently;
 - a multi-day test can be replayed and inspected.
@@ -193,25 +197,34 @@ Exit criteria:
 - save/replay preserves random outcomes;
 - peaceful packs do not need to load RPG modules.
 
-## Milestone 8 — Resident Creation Workflows
+## Milestone 8 — Resident Projects and World Growth
 
-**Goal:** Let residents contribute approved artifacts and projects safely.
+**Goal:** Let residents choose bounded roles and collaborate with one another and the user on approved additions to their world.
 
 Scope:
 
+- resident goals that may produce project or role proposals;
+- versioned project records with objectives, requirements, collaborators, status, and linked events;
+- voluntary roles and small institutions with scoped authority;
 - staging area and provenance records;
 - writing, image, planning, and programming specialist adapters;
 - proposal/review/import lifecycle;
+- explicit requests for unavailable user, asset, content, or development input;
+- separation between simulated construction and external content development;
 - sandboxed tests for code artifacts;
 - no silent engine or permission modification;
 - creator-defined approval policies.
 
 Exit criteria:
 
+- a resident can propose one small original service location or institution and an associated role;
+- another resident and the user can make attributable contributions;
+- missing capabilities or materials are reported honestly rather than fabricated;
 - generated work is clearly distinguished from imported canonical content;
 - unavailable specialists are reported honestly;
 - rejected artifacts cannot affect runtime state;
-- imported artifacts remain attributable and reversible.
+- imported artifacts remain attributable and reversible;
+- after approval and validation, the user's Avatar can visit and interact with the result through ordinary world rules.
 
 ## Milestone 9 — Creator SDK and First Paid Engine Release
 

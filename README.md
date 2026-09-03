@@ -2,7 +2,7 @@
 
 > Plant a world. Give it rules. Let its residents build a history.
 
-WORLD_SEED is a local-first engine project for creating persistent simulated worlds inhabited by AI residents. A creator supplies a **world pack**—locations, residents, rules, creatures, items, activities, and optional RPG systems—while the engine supplies deterministic state, validated actions, event history, memory boundaries, model adapters, and renderer integration.
+WORLD_SEED is a local-first engine project for creating persistent simulated worlds shared by AI residents and a human-controlled avatar. A creator supplies a **world pack**—locations, residents, rules, creatures, items, activities, and optional RPG systems—while the engine supplies deterministic state, validated actions, event history, memory boundaries, model adapters, and renderer integration.
 
 The long-term goal is not to distribute one prewritten virtual household. It is to give other people the tools to plant their **own** world seed.
 
@@ -34,15 +34,28 @@ A world seed is a portable declaration of a simulated world's starting condition
 
 Runtime history does **not** belong in the seed. Once planted, each installation develops its own state, memories, relationships, events, and creations.
 
+## A World Built From Within
+
+The long-term experience is collaborative. Residents may develop goals, choose roles, propose institutions or locations, and ask one another or the user to help create them. A resident might want to keep an inn, organize an adventurers' guild, maintain a library, or open a workshop. The resulting project becomes part of the world only after its plans, assets, rules, permissions, and state changes pass trusted validation and any required Creator approval.
+
+The human participant has two separate roles:
+
+- the **Creator** operates, protects, configures, and approves changes to the planted world; and
+- the **Avatar** enters the fiction, talks, explores, collaborates, and acts through the same validated world rules as other actors.
+
+Residents may invite the user to participate, including asking the user to create an Avatar and visit something they built. An invitation is a social request, not permission to impersonate the user or bypass world rules.
+
 ## Core Contract
 
-WORLD_SEED is designed around five rules:
+WORLD_SEED is designed around seven rules:
 
 1. **The engine owns objective truth.** Models may propose actions, but trusted code validates and applies them.
 2. **A proposal is not an action.** Text generation cannot directly mutate world state, files, permissions, or external systems.
 3. **History is inspectable.** Consequential state changes produce structured events and can be reviewed.
 4. **Residents remain distinct.** Identity, personal memory, relationships, world facts, and model checkpoints are separate concepts.
 5. **Worlds are portable.** A world pack depends on documented interfaces rather than one creator's private characters or hardware.
+6. **Creator authority and Avatar actions are separate.** Administration remains explicit; the Avatar participates through ordinary world rules.
+7. **World growth is reviewed and attributable.** Resident ideas become structured projects, staged artifacts, validated imports, and recorded history.
 
 ```mermaid
 flowchart TD
@@ -68,6 +81,9 @@ See [Public/Private Repository Boundary](docs/governance/PUBLIC_PRIVATE_BOUNDARY
 - [World Seed Format](docs/design/SEED_FORMAT.md)
 - [World Packs](docs/design/WORLD_PACKS.md)
 - [Resident Model](docs/design/RESIDENTS.md)
+- [Creator and Avatar](docs/design/CREATOR_AND_AVATAR.md)
+- [Resident Roles and Institutions](docs/design/RESIDENT_ROLES_AND_INSTITUTIONS.md)
+- [Resident Projects and World Growth](docs/design/RESIDENT_PROJECTS_AND_WORLD_GROWTH.md)
 - [Autonomy and Safety](docs/architecture/AUTONOMY_AND_SAFETY.md)
 - [Creatures and RPG Hooks](docs/design/RPG_AND_CREATURES.md)
 - [Development Roadmap](docs/development/ROADMAP.md)
