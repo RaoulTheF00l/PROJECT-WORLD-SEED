@@ -1,0 +1,92 @@
+# System Architecture
+
+## Architectural Goal
+
+WORLD_SEED separates imaginative model behavior from authoritative simulation behavior. Models supply possible intentions and interpretations. Deterministic modules decide what is valid, update the world, and record the result.
+
+## Major Components
+
+| Component | Responsibility | Must Not Do |
+| --- | --- | --- |
+| Seed loader | Validate and resolve a world pack | Execute arbitrary pack code during parsing |
+| State store | Hold canonical world state | Treat model text as a state update |
+| Clock and scheduler | Advance configured simulation time | Invent unrecorded time jumps |
+| Observation builder | Create truthful, resident-scoped observations | Leak private memory or hidden state |
+| Resident policy | Propose a structured intention | Apply the action itself |
+| Action validator | Check schema, permissions, preconditions, and limits | Ask the model whether its own action is valid |
+| Rule resolver | Calculate deterministic outcomes and recorded randomness | Hide rule or random inputs |
+| Transition service | Apply an accepted outcome atomically | Partially mutate state on failure |
+| Event log | Append canonical results and provenance | Rewrite history silently |
+| Memory service | Build private and shared interpretations from events | Replace objective events with beliefs |
+| Adapter registry | Connect approved model, renderer, storage, and tool adapters | Grant adapters undeclared authority |
+
+## Tick Pipeline
+
+```mermaid
+flowchart TD
+    Load["Load canonical state"] --> Observe["Build scoped observations"]
+    Observe --> Propose["Collect structured intentions"]
+    Propose --> Validate["Validate and resolve"]
+    Validate --> Apply["Apply atomic transitions"]
+    Apply --> Record["Append canonical events"]
+    Record --> Save["Persist state and cursors"]
+    Save --> Notify["Notify residents and renderers"]
+```
+
+Each step has explicit inputs and outputs. A failure before `Apply` leaves canonical state unchanged. A failure after `Apply` must be recoverable from transactional storage or event replay.
+
+## Proposed Core Package Boundaries
+
+```text
+world_seed/
+  seed/          manifest loading and schema validation
+  world/         state models, clock, scheduler, and queries
+  actions/       proposals, permissions, validators, and resolvers
+  events/        canonical events, append log, and replay
+  residents/     observations, policies, and resident adapters
+  memory/        private memory interfaces and relationship beliefs
+  adapters/      model, renderer, storage, specialist, and tool ports
+  cli/           validation, planting, running, inspecting, and migration
+```
+
+This layout is a direction, not implemented code.
+
+## State and Event Strategy
+
+The reference implementation should begin with a snapshot plus append-only event log:
+
+- state snapshots make startup simple;
+- events explain how state changed;
+- snapshot metadata records the last included event;
+- replay validates recovery and migrations;
+- seeded randomness and resolver versions make outcomes auditable.
+
+An event-sourced database may be considered later, but the first milestone should not require distributed infrastructure.
+
+## Concurrency Direction
+
+The first engine processes intentions serially in a deterministic order. Later concurrency may collect proposals in parallel, but commits must resolve against a known state revision. Conflicting actions are rejected, reordered by an authored rule, or resolved as a transaction—never applied unpredictably.
+
+## Adapter Boundary
+
+Adapters receive the minimum data required for their role. A renderer receives presentation-safe state and events. A model receives a scoped observation and approved memory context. A specialist receives a bounded task. A storage backend receives serialized records.
+
+No adapter gains authority merely because it can return convincing text or code.
+
+## Portability Boundary
+
+World packs use JSON/YAML data and versioned identifiers. Engine-specific code extensions, when eventually supported, must declare compatibility and run behind an explicit trust policy. A basic world should remain expressible without executable pack code.
+
+## Scaling Direction
+
+Scale along independent axes:
+
+- number of active residents;
+- simulation frequency;
+- world detail and entity count;
+- model size and inference frequency;
+- memory retrieval depth;
+- renderer complexity;
+- background scheduling.
+
+Creators can increase one axis as hardware improves without replacing the whole system.

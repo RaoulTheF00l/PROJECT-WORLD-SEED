@@ -1,0 +1,55 @@
+ruleset_version: 0.1-draft
+id: rules.tiny-garden
+display_name: Tiny Garden Basic Rules
+description: Minimal data-oriented rules for the deterministic starter scenario.
+
+actions:
+  world.observe:
+    requires_actor: true
+    state_change: false
+
+  world.wait:
+    requires_actor: true
+    state_change: true
+    parameters:
+      ticks:
+        type: integer
+        minimum: 1
+        maximum: 1
+
+  world.move:
+    requires_actor: true
+    state_change: true
+    parameters:
+      destination_id:
+        type: entity_id
+
+  world.use:
+    requires_actor: true
+    state_change: true
+    parameters:
+      item_id:
+        type: entity_id
+      target_id:
+        type: entity_id
+
+  social.speak:
+    requires_actor: true
+    state_change: false
+    parameters:
+      text:
+        type: string
+        maximum_length: 280
+
+resolvers:
+  watering:
+    action_type: world.use
+    item_requires_tag: tool
+    target_requires_tag: waterable
+    same_location_required: true
+    consume:
+      field: water_units
+      amount: 1
+    set_target_state:
+      watered: true
+    event_type: world.object-watered

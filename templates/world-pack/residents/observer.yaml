@@ -1,0 +1,28 @@
+resident_version: 0.1-draft
+id: resident.observer
+display_name: Observer
+summary: A quiet visitor used to demonstrate scoped observations and separate resident state.
+starting_location: location.garden
+
+policy:
+  type: deterministic
+  adapter: deterministic.policy
+  profile: template.observer
+
+capabilities:
+  - world.observe
+  - world.move
+  - world.wait
+  - social.speak
+
+permissions:
+  allowed_actions:
+    - world.observe
+    - world.move
+    - world.wait
+    - social.speak
+
+memory:
+  personal: private
+  relationship_beliefs: private
+  runtime_storage: external

@@ -1,0 +1,21 @@
+{
+  "event_version": "0.1-draft",
+  "event_id": "1317b5d1-2dad-4aa2-b80f-60377f3cf251",
+  "world_instance_id": "b145d6fa-3f92-44b7-b5ce-7b907d6c41be",
+  "sequence": 2,
+  "tick": 1,
+  "event_type": "world.object-watered",
+  "actor_id": "resident.gardener",
+  "action_proposal_id": "3c6d96a7-6407-4ad6-b34b-931e54ddbf3b",
+  "resolver": {
+    "id": "rules.watering",
+    "version": "0.1.0"
+  },
+  "payload": {
+    "item_id": "item.watering-can",
+    "target_id": "object.planter",
+    "watered": true,
+    "remaining_water_units": 2
+  },
+  "created_at": "2026-09-02T00:00:00Z"
+}

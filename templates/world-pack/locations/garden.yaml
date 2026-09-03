@@ -1,0 +1,35 @@
+location_version: 0.1-draft
+id: location.garden
+display_name: Community Garden
+description: A small enclosed garden with two planters, a bench, and a tool shelf.
+
+tags:
+  - outdoor
+  - peaceful
+  - starter
+
+exits: []
+
+objects:
+  - id: object.planter
+    display_name: Dry Planter
+    tags:
+      - plantable
+      - waterable
+    state:
+      watered: false
+
+  - id: item.watering-can
+    display_name: Watering Can
+    tags:
+      - tool
+      - portable
+    state:
+      water_units: 3
+
+  - id: object.bench
+    display_name: Garden Bench
+    tags:
+      - furniture
+      - sittable
+    state: {}

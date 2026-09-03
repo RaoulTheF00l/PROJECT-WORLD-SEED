@@ -1,0 +1,26 @@
+creature_version: 0.1-draft
+id: creature.mossling
+display_name: Mossling
+description: A palm-sized garden creature that naps near damp soil and avoids conflict.
+
+starting_location: location.garden
+policy:
+  type: deterministic
+  adapter: deterministic.policy
+  profile: template.mossling
+
+tags:
+  - tiny
+  - peaceful
+  - garden
+
+disposition: cautious
+
+capabilities:
+  - world.observe
+  - world.move
+  - world.wait
+
+state:
+  energy: 5
+  hidden: false

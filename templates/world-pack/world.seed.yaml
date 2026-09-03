@@ -1,0 +1,32 @@
+seed_version: 0.1-draft
+id: example.tiny-garden
+title: Tiny Garden
+description: A deterministic starter world for validating one peaceful activity loop.
+
+engine:
+  minimum_version: 0.1.0
+
+world:
+  entry_location: location.garden
+  clock:
+    mode: tick
+    ticks_per_day: 24
+
+content:
+  locations:
+    - locations/garden.yaml
+  residents:
+    - residents/gardener.yaml
+    - residents/observer.yaml
+  creatures:
+    - creatures/mossling.yaml
+  rules:
+    - rules/basic-rules.yaml
+
+requirements:
+  adapters:
+    - deterministic.policy
+
+privacy:
+  runtime_data: external
+  include_private_memory: false

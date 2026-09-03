@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "action.schema.json",
+  "title": "WORLD_SEED Action Proposal",
+  "description": "Draft envelope for an intention that has not yet changed canonical state.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "action_version",
+    "proposal_id",
+    "world_instance_id",
+    "state_revision",
+    "tick",
+    "actor_id",
+    "action_type",
+    "parameters",
+    "capability",
+    "adapter_provenance"
+  ],
+  "properties": {
+    "action_version": {
+      "const": "0.1-draft"
+    },
+    "proposal_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "world_instance_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "state_revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "tick": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "actor_id": {
+      "$ref": "#/$defs/namespaced_id"
+    },
+    "action_type": {
+      "$ref": "#/$defs/namespaced_id"
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "capability": {
+      "$ref": "#/$defs/namespaced_id"
+    },
+    "adapter_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["adapter_id", "adapter_version", "request_id"],
+      "properties": {
+        "adapter_id": {
+          "$ref": "#/$defs/namespaced_id"
+        },
+        "adapter_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "request_id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "namespaced_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)+$",
+      "maxLength": 160
+    }
+  }
+}

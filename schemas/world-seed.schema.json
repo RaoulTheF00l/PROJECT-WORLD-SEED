@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "world-seed.schema.json",
+  "title": "WORLD_SEED World Seed Manifest",
+  "description": "Draft root manifest for a portable WORLD_SEED world pack.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "seed_version",
+    "id",
+    "title",
+    "engine",
+    "world",
+    "content",
+    "privacy"
+  ],
+  "properties": {
+    "seed_version": {
+      "const": "0.1-draft"
+    },
+    "id": {
+      "$ref": "#/$defs/namespaced_id"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["minimum_version"],
+      "properties": {
+        "minimum_version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$"
+        }
+      }
+    },
+    "world": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entry_location", "clock"],
+      "properties": {
+        "entry_location": {
+          "$ref": "#/$defs/namespaced_id"
+        },
+        "clock": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "ticks_per_day"],
+          "properties": {
+            "mode": {
+              "enum": ["tick", "paused"]
+            },
+            "ticks_per_day": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 86400
+            }
+          }
+        }
+      }
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["locations", "residents"],
+      "properties": {
+        "locations": {
+          "$ref": "#/$defs/path_list"
+        },
+        "residents": {
+          "$ref": "#/$defs/path_list"
+        },
+        "creatures": {
+          "$ref": "#/$defs/path_list"
+        },
+        "items": {
+          "$ref": "#/$defs/path_list"
+        },
+        "activities": {
+          "$ref": "#/$defs/path_list"
+        },
+        "rules": {
+          "$ref": "#/$defs/path_list"
+        },
+        "quests": {
+          "$ref": "#/$defs/path_list"
+        }
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "adapters": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/namespaced_id"
+          }
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime_data", "include_private_memory"],
+      "properties": {
+        "runtime_data": {
+          "const": "external"
+        },
+        "include_private_memory": {
+          "const": false
+        }
+      }
+    }
+  },
+  "$defs": {
+    "namespaced_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)+$",
+      "maxLength": 160
+    },
+    "relative_definition_path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._/-]+\\.(?:yaml|yml|json)$"
+    },
+    "path_list": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/relative_definition_path"
+      }
+    }
+  }
+}

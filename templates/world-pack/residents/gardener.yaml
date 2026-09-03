@@ -1,0 +1,30 @@
+resident_version: 0.1-draft
+id: resident.gardener
+display_name: Gardener
+summary: A patient caretaker used to demonstrate deterministic object interaction.
+starting_location: location.garden
+
+policy:
+  type: deterministic
+  adapter: deterministic.policy
+  profile: template.gardener
+
+capabilities:
+  - world.observe
+  - world.move
+  - world.use
+  - world.wait
+  - social.speak
+
+permissions:
+  allowed_actions:
+    - world.observe
+    - world.move
+    - world.use
+    - world.wait
+    - social.speak
+
+memory:
+  personal: private
+  relationship_beliefs: private
+  runtime_storage: external

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "event.schema.json",
+  "title": "WORLD_SEED Canonical Event",
+  "description": "Draft immutable record of an accepted world occurrence or state transition.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_version",
+    "event_id",
+    "world_instance_id",
+    "sequence",
+    "tick",
+    "event_type",
+    "actor_id",
+    "action_proposal_id",
+    "resolver",
+    "payload",
+    "created_at"
+  ],
+  "properties": {
+    "event_version": {
+      "const": "0.1-draft"
+    },
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "world_instance_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "tick": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "event_type": {
+      "$ref": "#/$defs/namespaced_id"
+    },
+    "actor_id": {
+      "oneOf": [
+        {"$ref": "#/$defs/namespaced_id"},
+        {"type": "null"}
+      ]
+    },
+    "action_proposal_id": {
+      "oneOf": [
+        {"type": "string", "format": "uuid"},
+        {"type": "null"}
+      ]
+    },
+    "resolver": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/namespaced_id"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        }
+      }
+    },
+    "payload": {
+      "type": "object"
+    },
+    "randomness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "draws"],
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "seed_reference": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "draws": {
+          "type": "array",
+          "items": {
+            "type": ["integer", "number", "string", "boolean", "null"]
+          }
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$defs": {
+    "namespaced_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)+$",
+      "maxLength": 160
+    }
+  }
+}

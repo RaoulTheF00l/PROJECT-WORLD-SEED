@@ -1,0 +1,19 @@
+{
+  "action_version": "0.1-draft",
+  "proposal_id": "3c6d96a7-6407-4ad6-b34b-931e54ddbf3b",
+  "world_instance_id": "b145d6fa-3f92-44b7-b5ce-7b907d6c41be",
+  "state_revision": 1,
+  "tick": 1,
+  "actor_id": "resident.gardener",
+  "action_type": "world.use",
+  "parameters": {
+    "item_id": "item.watering-can",
+    "target_id": "object.planter"
+  },
+  "capability": "world.use",
+  "adapter_provenance": {
+    "adapter_id": "deterministic.policy",
+    "adapter_version": "0.1.0",
+    "request_id": "566de067-e927-48df-8bdd-6e9ccc7f8861"
+  }
+}
