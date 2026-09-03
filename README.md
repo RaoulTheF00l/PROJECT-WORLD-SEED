@@ -11,9 +11,10 @@ The long-term goal is not to distribute one prewritten virtual household. It is 
 WORLD_SEED is in **Milestone 1: One Persistent Model-Free World Tick**.
 
 - Milestone 0 documentation, draft schemas, and the starter world-pack template are complete.
-- A private Python reference implementation has passed 12 automated tests for the smallest deterministic core loop.
-- The verified slice covers canonical state, world and action validation, accepted and rejected actions, event recording, deterministic resident order, and repeated ticks.
-- Persistence is not implemented yet, so Milestone 1 is still in development.
+- A private Python reference implementation has passed 31 automated tests.
+- The verified slice covers canonical state, deterministic ticks, validated `wait` and `move` actions, connected-room navigation, event recording, safe room-building helpers, and rejected-action integrity.
+- Versioned JSON snapshot round trips, temporary-file replacement, semantic validation at serialization boundaries, immutable resident observations, and a pluggable in-process action-provider seam are also verified.
+- Replay digests, process-restart recovery, resolver-version recording, public-schema conformance, and the remaining Milestone 1 actions are not complete, so Milestone 1 remains in development.
 - No functional WORLD_SEED engine has been released publicly.
 - Interfaces marked `0.1-draft` are expected to change.
 - Public examples demonstrate intended data shapes and are not yet a conformance guarantee for the private implementation.
@@ -78,6 +79,7 @@ See [Public/Private Repository Boundary](docs/governance/PUBLIC_PRIVATE_BOUNDARY
 - [Project Proposal](docs/PROJECT_PROPOSAL.md)
 - [Documentation Index](docs/INDEX.md)
 - [System Architecture](docs/architecture/SYSTEM_ARCHITECTURE.md)
+- [Action Provider Boundary](docs/architecture/ACTION_PROVIDER_BOUNDARY.md)
 - [World Seed Format](docs/design/SEED_FORMAT.md)
 - [World Packs](docs/design/WORLD_PACKS.md)
 - [Resident Model](docs/design/RESIDENTS.md)
@@ -102,7 +104,7 @@ Purchasers are intended to be able to modify their own engine copy and create in
 
 ## Implementation Direction
 
-The first private reference implementation now exists as a small Python core with automated tests. Its deterministic core-loop slice is verified; JSON persistence, public-schema conformance, and the remaining Milestone 1 exit criteria are still in development. A Godot client may later consume authoritative events and render the world, but it will not own canonical state. Model providers, renderers, storage backends, and specialist tools should remain replaceable adapters.
+The first private reference implementation now exists as a small Python core with automated tests. Its deterministic loop, connected navigation, versioned JSON snapshot persistence, safe world-building helpers, and bounded in-process action-provider seam are verified. Replay, restart recovery, public-schema conformance, and the remaining Milestone 1 exit criteria are still in development. A Godot client may later consume authoritative events and render the world, but it will not own canonical state. Model providers, renderers, storage backends, and specialist tools should remain replaceable adapters.
 
 ## Contributing
 

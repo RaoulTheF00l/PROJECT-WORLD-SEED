@@ -92,3 +92,11 @@ Residents may develop goals, propose additions, collaborate with other residents
 **Date:** 2026-09-03
 
 Roles such as innkeeper or guild master are not permanent prompt labels or self-declared authority. They are inspectable world records with requirements, scoped permissions, status, acceptance, and event history. Residents may change or leave roles without erasing identity.
+
+## D-014 — Controllers Receive Observations and Return Proposals
+
+**Status:** Accepted
+
+**Date:** 2026-09-03
+
+A resident policy, future model adapter, or human-input adapter should receive a bounded observation instead of direct canonical mutation authority. It returns a structured action proposal for the actor whose decision was requested. Trusted engine code verifies actor binding, validates the proposal, applies accepted changes, and records the event. A private model-free reference slice now verifies this boundary for an in-process callable; external adapters remain planned.

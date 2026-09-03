@@ -49,26 +49,34 @@ Exit criteria:
 - restart does not duplicate or lose accepted actions;
 - every state change references an event and resolver version.
 
-Verified core-loop slice on 2026-09-03:
+Verified private-reference slice on 2026-09-03:
 
 - canonical world state starts at tick `0`;
-- one room and two placeholder residents are connected by stable IDs;
-- invalid resident locations and invalid action proposals fail closed;
+- rooms, exits, residents, actions, and events use stable IDs;
+- invalid resident locations, missing exits, and invalid action proposals fail closed;
 - accepted `wait` actions create canonical events;
+- accepted `move` actions traverse declared exits, update resident location, and create canonical events;
+- unknown, missing, and unconnected movement targets are rejected before the tested state changes;
 - rejected actions do not modify event history;
 - residents act in deterministic sorted-ID order;
 - two consecutive rounds advance the world to tick `2` while preserving four ordered events;
-- 12 automated tests pass in the private Python reference implementation.
+- room-building helpers reject duplicate IDs and self-connections, create two-way connections, avoid duplicate exits, and avoid partial connection on a missing endpoint;
+- versioned JSON serialization preserves ticks, connected rooms, residents, and events through string and filesystem round trips;
+- saving uses an adjacent temporary file before destination replacement, and repeated saves replace the previous snapshot;
+- serialization and deserialization reject worlds that violate current semantic reference rules;
+- a frozen resident observation exposes current identity, location, and available exit IDs to a pluggable in-process action provider;
+- the provider may propose a valid action for the active resident but cannot attribute that turn to another actor;
+- 31 automated tests pass in the private Python reference implementation.
 
 Remaining before Milestone 1 completion:
 
-- versioned JSON save and load;
-- restart and resume tests;
+- process-restart and resume tests;
 - replay and snapshot digest checks;
-- crash-safe persistence behavior;
+- full crash-durability evidence beyond temporary-file replacement;
+- whole-tick transaction or rollback behavior when a later resident action fails;
 - resolver-version recording;
 - alignment with the public `0.1-draft` schemas;
-- additional minimum-scope actions where required by the exit criteria.
+- additional minimum-scope actions, including `speak` and `use`, where required by the exit criteria.
 
 See [Core Loop Proof](CORE_LOOP_PROOF.md) for the evidence manifest and limitations.
 
@@ -96,6 +104,14 @@ Exit criteria:
 ## Milestone 3 — Resident Adapter Contract
 
 **Goal:** Replace one placeholder policy with a bounded adapter without changing engine authority.
+
+Early prerequisite verified in the private reference implementation:
+
+- an in-process callable can receive a frozen resident observation and return an action;
+- the observation contains current tick, actor identity, location, and available exit IDs rather than canonical `WorldState`;
+- the engine rejects a returned action attributed to a different resident.
+
+This does not complete Milestone 3. No language model, model-host protocol, timeout, cancellation, health check, memory context, or malformed model-response parser is connected.
 
 Scope:
 

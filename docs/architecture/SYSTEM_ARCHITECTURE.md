@@ -38,6 +38,23 @@ flowchart TD
 
 Each step has explicit inputs and outputs. A failure before `Apply` leaves canonical state unchanged. A failure after `Apply` must be recoverable from transactional storage or event replay.
 
+## Verified Private Reference Slice
+
+The current private Python reference implementation verifies a deliberately smaller form of this architecture:
+
+- canonical `WorldState` stores ticks, rooms, room exits, residents, and canonical events;
+- deterministic ticks process resident IDs in sorted order;
+- `wait` and connected `move` proposals pass through world and action validation before application;
+- rejected movement cannot use a missing or unconnected destination;
+- accepted actions append canonical events;
+- safe builder helpers add uniquely identified rooms and create idempotent two-way connections;
+- versioned JSON snapshot serialization and filesystem round trips preserve current state and history;
+- serialization boundaries reuse semantic world validation;
+- an optional in-process action provider receives a frozen resident observation rather than canonical state;
+- a provider response must be attributed to the resident whose decision was requested.
+
+This verified slice does not yet provide whole-tick rollback, replay digests, resolver-version records, public-schema conformance, model-host adapters, Avatar input, or a renderer. See [Core Loop Proof](../development/CORE_LOOP_PROOF.md) and [Action Provider Boundary](ACTION_PROVIDER_BOUNDARY.md).
+
 ## Proposed Core Package Boundaries
 
 ```text

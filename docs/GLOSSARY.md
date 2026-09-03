@@ -4,6 +4,10 @@
 
 A structured request from a resident policy, model adapter, user interface, or deterministic system. It contains an actor, action type, parameters, and observed-state reference. It has no effect until validated.
 
+## Action Provider
+
+A bounded controller function or adapter that receives a resident-scoped observation and returns a proposed action. It does not apply the action or receive canonical mutation authority.
+
 ## Adapter
 
 A replaceable boundary between WORLD_SEED and an external component, such as a language-model host, renderer, storage backend, specialist model, or approved tool.
@@ -55,6 +59,10 @@ An in-world actor with a stable identifier, profile, capabilities, permissions, 
 ## Resident Policy
 
 The component that proposes a resident's next intention. Early policies may be deterministic placeholders; later policies may consult language models.
+
+## Resident Observation
+
+A point-in-time, resident-scoped view containing only the world information authorized for one decision. An observation is not canonical state and cannot grant mutation authority.
 
 ## Resident Goal
 

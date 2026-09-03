@@ -69,6 +69,8 @@ A resident receives only what its senses, location, permissions, and prior knowl
 
 Private memories of other residents, secret engine state, credentials, and raw hidden prompts must not appear.
 
+The private reference implementation now verifies a minimal observation containing the current tick, actor ID and name, location ID and name, and an immutable tuple of available exit IDs. A custom in-process provider can use that observation to return a `move` action without receiving canonical `WorldState`. Rich perception, hidden-state filtering, memory retrieval, and model-host transport remain planned. See [Action Provider Boundary](../architecture/ACTION_PROVIDER_BOUNDARY.md).
+
 ## Intention Contract
 
 A policy proposes zero or one primary intention per decision window in the initial design. It may also produce optional presentation text. The engine treats malformed, impossible, stale, or unauthorized intentions as rejected proposals and records a safe diagnostic.

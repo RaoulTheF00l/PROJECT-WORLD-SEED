@@ -94,8 +94,8 @@ Milestone 1 is accepted when a model-free Tiny Garden fixture can run a fixed se
 
 ## Current Milestone 1 Evidence
 
-As of 2026-09-03, the private reference implementation passes 12 automated tests for the in-memory portion of this target. The tests cover canonical state, valid and invalid world references, valid and invalid actions, event recording, rejected-action atomicity, deterministic resident order, and repeated tick advancement.
+As of 2026-09-03, the private reference implementation passes 31 automated tests. The tests cover canonical state, valid and invalid world references, deterministic tick order, `wait` and connected `move` actions, rejected-action integrity, event recording, safe room creation and connection, versioned JSON round trips, temporary-file replacement, semantic persistence validation, frozen resident observations, custom action-provider movement, and rejection of cross-resident actor spoofing.
 
-Persistence, restart recovery, replay digests, public-schema conformance, and a public conformance harness remain incomplete. Milestone 1 is therefore **in development**, not accepted.
+The persistence evidence is a snapshot and filesystem round trip within the test process. Process-restart recovery, replay digests, resolver-version recording, whole-tick rollback, public-schema conformance, remaining Milestone 1 actions, and a public conformance harness remain incomplete. Milestone 1 is therefore **in development**, not accepted.
 
 See [Core Loop Proof](CORE_LOOP_PROOF.md) for the exact test manifest and supported public claim.

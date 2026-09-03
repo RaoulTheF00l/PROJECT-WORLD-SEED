@@ -10,6 +10,7 @@
 ## Architecture
 
 - [System Architecture](architecture/SYSTEM_ARCHITECTURE.md)
+- [Action Provider Boundary](architecture/ACTION_PROVIDER_BOUNDARY.md)
 - [Autonomy and Safety](architecture/AUTONOMY_AND_SAFETY.md)
 - [Memory and Relationships](architecture/MEMORY_AND_RELATIONSHIPS.md)
 - [Model and Renderer Adapters](architecture/ADAPTERS.md)

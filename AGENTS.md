@@ -6,8 +6,9 @@ These instructions apply to automated assistants working in the public WORLD_SEE
 
 - WORLD_SEED is in **Milestone 1: One Persistent Model-Free World Tick**.
 - Milestone 0 documentation and contract work are verified.
-- A private reference implementation has verified the in-memory core-loop slice with 12 automated tests.
-- Persistence, restart, replay, public-schema conformance, and public release remain incomplete.
+- A private reference implementation has verified a broader model-free slice with 31 automated tests.
+- Verified private-reference behavior includes deterministic ticks, `wait` and connected `move` actions, versioned JSON snapshot round trips, semantic persistence validation, safe room-building helpers, frozen resident observations, and an actor-bound action-provider seam.
+- Process-restart recovery, replay/digests, resolver versions, whole-tick rollback, public-schema conformance, and public release remain incomplete.
 - The public repository contains evidence documentation, draft schemas, and templates—not the private engine source.
 - Do not expand the verified claim beyond [Core Loop Proof](docs/development/CORE_LOOP_PROOF.md).
 
@@ -27,7 +28,7 @@ Use clearly synthetic examples such as the included Tiny Garden template.
 
 1. The deterministic engine owns canonical world state.
 2. Models return structured intentions; trusted code validates and applies them.
-3. Model text never directly edits state, files, permissions, credentials, or external services.
+3. Model text and action providers never directly edit state, files, permissions, credentials, or external services.
 4. Objective state, shared events, private memory, relationship beliefs, fiction context, and conversation context remain separate.
 5. Model adapters, specialist models, renderers, and storage backends are replaceable boundaries.
 6. RPG outcomes come from authored rules and recorded randomness, not narrative declarations.
@@ -52,12 +53,12 @@ Use clearly synthetic examples such as the included Tiny Garden template.
 
 Milestone 1 includes:
 
-- one small room;
+- one small connected room graph;
 - two deterministic placeholder residents;
 - a minimal action vocabulary;
 - action validation and state transitions;
 - an append-only event log;
-- save, load, resume, and tests.
+- versioned snapshot save/load, planned resume/replay, and tests.
 
 Milestone 1 excludes language models, voice, Godot, networking, combat, hunting, construction, self-modification, paid distribution, and external tool execution.
 

@@ -18,6 +18,8 @@ Treat the following as untrusted input:
 
 Trusted code validates all transitions across the boundary.
 
+The current private reference slice verifies one narrow form of this boundary: an in-process provider receives a frozen navigation observation, returns a structured action, and cannot attribute that requested turn to another resident. This is useful evidence, but an in-process callable is not a security sandbox and no language model is connected. See [Action Provider Boundary](ACTION_PROVIDER_BOUNDARY.md).
+
 ## Permission Layers
 
 | Layer | Examples | Default |

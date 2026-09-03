@@ -159,4 +159,4 @@ WORLD_SEED succeeds when a new creator can:
 
 ## Immediate Decision
 
-Maintain this repository as the public specification, proposal, and evidence index. Keep the creator's flagship world and paid reference-engine source in separate private repositories. Milestone 0 is complete; finish persistence, restart, replay, and schema-conformance evidence for Milestone 1 before connecting a language model.
+Maintain this repository as the public specification, proposal, and evidence index. Keep the creator's flagship world and paid reference-engine source in separate private repositories. Milestone 0 is complete, and the private reference now verifies versioned snapshot persistence plus a model-free action-provider seam. Finish process-restart recovery, replay/digests, resolver-version recording, remaining actions, stronger transaction guarantees, and schema-conformance evidence for Milestone 1 before connecting a language model.

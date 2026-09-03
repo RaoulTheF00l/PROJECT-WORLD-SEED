@@ -12,6 +12,14 @@ Receives a scoped observation, resident instructions, retrieved memory, allowed 
 
 It does not receive engine credentials or direct state mutation methods.
 
+### In-process action provider precursor
+
+The private reference implementation now verifies a smaller, model-free precursor to the resident model adapter. A callable receives one frozen resident observation and returns one structured action. The observation includes current tick, actor identity, current location, and available exit IDs; canonical `WorldState` is not passed through this interface.
+
+The engine verifies that the returned action belongs to the resident whose decision was requested, then runs ordinary action validation. This seam can later sit behind a deterministic policy, human-input adapter, or local-model adapter, but it is not itself a model-host integration. It currently has no timeout, cancellation, health check, free-text parser, memory retrieval, or per-resident adapter registry.
+
+See [Action Provider Boundary](ACTION_PROVIDER_BOUNDARY.md).
+
 ### Specialist adapter
 
 Receives a bounded expert task—such as programming analysis, writing critique, image generation, or planning—and returns candidates or findings to the requesting resident workflow.

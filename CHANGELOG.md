@@ -4,6 +4,31 @@ All notable public specification changes will be recorded here.
 
 This project uses design-stage version numbers until a functional engine is publicly released.
 
+## 0.1.3-draft — 2026-09-03
+
+### Added
+
+- a 31-test private-reference evidence manifest;
+- verified connected-room movement and safe room-construction claims;
+- verified versioned JSON snapshot round-trip and temporary-file replacement claims;
+- a documented immutable resident-observation and in-process action-provider boundary;
+- an actor-binding guard that rejects a provider action attributed to a different resident.
+
+### Changed
+
+- advanced the private reference evidence beyond the original 12-test in-memory loop;
+- moved JSON persistence, connected navigation, and the initial controller seam from planned to verified private-reference slices;
+- narrowed the remaining Milestone 1 work to restart recovery, replay/digests, resolver versions, schema conformance, remaining actions, and stronger transaction guarantees;
+- clarified that the controller seam is not a language-model adapter or proof of autonomous AI behavior.
+
+### Not Included
+
+- private engine source;
+- a public conformance harness;
+- process-restart, replay-digest, or full crash-durability evidence;
+- language-model inference, Avatar input, memory, relationships, RPG rules, or renderer integration;
+- a completed Milestone 1 claim.
+
 ## 0.1.2-draft — 2026-09-03
 
 ### Added
